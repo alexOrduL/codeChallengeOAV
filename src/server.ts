@@ -1,14 +1,14 @@
-import express from "express";
-import util from "./util";
-import { routes } from "../routes";
+import express from 'express'
+import util from './util'
+import indexRouter from '../routes/index'
 
 const app = express()
-const port  = util.config.default.PORT;
+const port = util.config.default.PORT
 
-app.use('/', routes)
+app.use('/', indexRouter)
 
-app.listen(port,() =>{
-    console.log( `\nServer run  ning on ---> http://localhost:${port}\n`)
-});
+app.listen(port, () => {
+  console.log(`\nServer run  ning on ---> http://localhost:${port}\n`)
+})
 
-export default app;
+export default app

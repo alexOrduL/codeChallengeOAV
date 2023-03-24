@@ -4,14 +4,11 @@ import fs from 'fs'
 
 const csvFilePath = __dirname + '/inventory.csv'
 
-console.log(csvFilePath)
-
-
-cron.schedule(" */5 * * * * ", () => {
+cron.schedule("*/5 * * * * ", () => {
     csvtojson().fromFile(csvFilePath)
     .then((json: any) =>{
         try {
-            fs.writeFileSync("database/inventory.json", JSON.stringify(json), "utf-8")
+            fs.writeFileSync("database/inventory.json", JSON.stringify(json, null, 4), "utf-8")
             console.log("Cron Its Ok")
         } catch (error) {
             console.log(error)

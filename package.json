@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "start": "tsc && node dist/server.js",
+    "lint": "ts-standard",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -28,6 +29,13 @@
     "@types/node-cron": "^3.0.7",
     "nodemon": "^2.0.15",
     "ts-node": "^10.5.0",
+    "ts-standard": "^12.0.2",
     "typescript": "^4.5.5"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": ["./node_modules/ts-standard/eslintrc.json"]
   }
 }

@@ -1,12 +1,13 @@
+import express from 'express'
+import * as vehicleController from '../controllers/vehicles'
+const router = express.Router()
 
-import Router  from "express";
-import fs from "fs"
-import path from "path";
+router.get('/api/vehicles', (req, res) => {
+  const params = req.query
+  res.setHeader('Content-Type', 'application/json')
 
-let dbPath = path.join(__dirname,'../database/inventory.json');
-export const routes = Router()
+  if (Object.keys(params).length === 0) res.json(vehicleController.getAllVehicles())
+  else res.send(vehicleController.vehiclesSearch(params))
+})
 
-routes.get('/', (_req,res) => {
-    const data = fs.readFileSync(dbPath, "utf-8")
-    res.status(200).json(JSON.parse(data))
-});
+export default router
