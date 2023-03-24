@@ -1,6 +1,20 @@
 import cron from 'node-cron'
-import readCsv from './readCsv''
+import csvtojson from 'csvtojson'
+import fs from 'fs'
+
+const csvFilePath = __dirname + '/inventory.csv'
+
+console.log(csvFilePath)
+
 
 cron.schedule(" */5 * * * * ", () => {
-    readCsv
+    csvtojson().fromFile(csvFilePath)
+    .then((json: any) =>{
+        try {
+            fs.writeFileSync("database/inventory.json", JSON.stringify(json), "utf-8")
+            console.log("Cron Its Ok")
+        } catch (error) {
+            console.log(error)
+        }
+    })
 })
