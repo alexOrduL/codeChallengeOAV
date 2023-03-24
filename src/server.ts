@@ -5,6 +5,7 @@ import indexRouter from '../routes/index'
 const app = express()
 const port = util.config.default.PORT
 
+// Routes
 app.use('/', indexRouter)
 
 app.listen(port, () => {

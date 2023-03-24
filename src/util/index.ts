@@ -1,4 +1,4 @@
 export = {
-    config: require('./config'),
-    crons: require('./crons')
+  config: require('./config'),
+  crons: require('./crons')
 }
