@@ -19,3 +19,4 @@ This is a code challenger for OAV
 ## HOW TO RUN PROYECT
 
 Use `nodemon start` command in main proyect to run it
+The routes are `/api/vehicle` and to search info `/api/vehicle?Model=Toyota`
